@@ -1,0 +1,35 @@
+package myeffect;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import mymain.ImageManager;
+
+public class Crush {
+
+	// 폭발 위치
+	int x, y;
+	// 이미지 index(array)
+	int index = 0;
+
+	public static int w, h; // 폭발이미지 폭/높이
+
+	int interval = 10;
+
+	public boolean move() {
+		if (interval == 1)
+			index++;
+
+		interval--;
+		if (interval < 0)
+			interval = 1;
+		return (index >= 4); // 이미지를 끝까지 돌렸나 체크(true)
+	}
+
+	public void draw(Graphics g) {
+		Image img = ImageManager.crush[index];
+		g.drawImage(img, (x - w / 2), (y - h / 2), null);
+
+	}
+
+}

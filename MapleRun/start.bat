@@ -1,0 +1,1 @@
+java -jar -Xmx4096m -Xms4096m maplerun.jar 
